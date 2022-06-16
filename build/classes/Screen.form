@@ -173,6 +173,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="C"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BtnRetroceder">
       <Properties>
@@ -276,6 +279,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSumaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Btn0">
       <Properties>

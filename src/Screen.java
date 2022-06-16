@@ -8,11 +8,17 @@
  *
  * @author LABMOVIL
  */
+//https://www.youtube.com/watch?v=b7rC0BENpQw
 public class Screen extends javax.swing.JFrame {
 
-
+    public float primernumero;
+    public float segundonumero;
+    public String operador;
+    
+    
     public Screen() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -62,6 +68,11 @@ public class Screen extends javax.swing.JFrame {
         BtnCE.setText("CE");
 
         BtnC.setText("C");
+        BtnC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCActionPerformed(evt);
+            }
+        });
 
         BtnRetroceder.setText("←");
         BtnRetroceder.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +156,11 @@ public class Screen extends javax.swing.JFrame {
         });
 
         BtnSuma.setText("+");
+        BtnSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSumaActionPerformed(evt);
+            }
+        });
 
         Btn0.setText("0");
         Btn0.addActionListener(new java.awt.event.ActionListener() {
@@ -298,7 +314,7 @@ public class Screen extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnComaActionPerformed
 
     private void TxtpantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtpantallaActionPerformed
-        // TODO add your handling code here:
+        this.printNumber("");
     }//GEN-LAST:event_TxtpantallaActionPerformed
 
     private void Btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn0ActionPerformed
@@ -318,7 +334,11 @@ public class Screen extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn2ActionPerformed
 
     private void BtnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIgualActionPerformed
-        // TODO add your handling code here:
+        this.segundonumero=Float.parseFloat(this.Txtpantalla.getText());
+        
+        switch(this.operador){
+            case "+":this.Txtpantalla.setText(Float.toString(this.primernumero+this.segundonumero));
+        }
     }//GEN-LAST:event_BtnIgualActionPerformed
 
     private void Btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn4ActionPerformed
@@ -340,6 +360,16 @@ public class Screen extends javax.swing.JFrame {
     private void Btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn9ActionPerformed
         this.printNumber("9");
     }//GEN-LAST:event_Btn9ActionPerformed
+
+    private void BtnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCActionPerformed
+        Txtpantalla.setText("");
+    }//GEN-LAST:event_BtnCActionPerformed
+
+    private void BtnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSumaActionPerformed
+        this.primernumero=Float.parseFloat(this.Txtpantalla.getText());
+        this.operador="+";
+        this.Txtpantalla.setText("");
+    }//GEN-LAST:event_BtnSumaActionPerformed
     private void printNumber(String buttonText){
         String pantalla = this.Txtpantalla.getText();
         if(pantalla.length() < 8){

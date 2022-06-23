@@ -187,8 +187,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="BtnDivision">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xf7;"/>
+        <Property name="text" type="java.lang.String" value="/"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDivisionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Btn7">
       <Properties>
@@ -216,8 +219,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="BtnMultiplicacion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="X"/>
+        <Property name="text" type="java.lang.String" value="*"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnMultiplicacionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Btn4">
       <Properties>

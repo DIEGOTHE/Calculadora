@@ -8,7 +8,7 @@
  *
  * @author LABMOVIL
  */
-//https://www.youtube.com/watch?v=b7rC0BENpQw
+
 public class Screen extends javax.swing.JFrame {
 
     public float primernumero;
@@ -81,7 +81,12 @@ public class Screen extends javax.swing.JFrame {
             }
         });
 
-        BtnDivision.setText("÷");
+        BtnDivision.setText("/");
+        BtnDivision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDivisionActionPerformed(evt);
+            }
+        });
 
         Btn7.setText("7");
         Btn7.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +109,12 @@ public class Screen extends javax.swing.JFrame {
             }
         });
 
-        BtnMultiplicacion.setText("X");
+        BtnMultiplicacion.setText("*");
+        BtnMultiplicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMultiplicacionActionPerformed(evt);
+            }
+        });
 
         Btn4.setText("4");
         Btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -294,23 +304,29 @@ public class Screen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn3ActionPerformed
-        this.printNumber("3");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"3");
     }//GEN-LAST:event_Btn3ActionPerformed
 
     private void BtnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRestaActionPerformed
-        // TODO add your handling code here:
+        this.primernumero=Float.parseFloat(this.Txtpantalla.getText());
+        this.operador="-";
+        this.Txtpantalla.setText("");
     }//GEN-LAST:event_BtnRestaActionPerformed
 
     private void Btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn6ActionPerformed
-        this.printNumber("6");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"6");
     }//GEN-LAST:event_Btn6ActionPerformed
 
     private void Btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn1ActionPerformed
-        this.printNumber("1");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"1");
     }//GEN-LAST:event_Btn1ActionPerformed
 
     private void BtnComaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnComaActionPerformed
         this.printNumber(".");
+        if (!(this.Txtpantalla.getText().contains("."))) {
+            this.Txtpantalla.setText(this.Txtpantalla.getText()+".");
+            
+        }
     }//GEN-LAST:event_BtnComaActionPerformed
 
     private void TxtpantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtpantallaActionPerformed
@@ -318,11 +334,11 @@ public class Screen extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtpantallaActionPerformed
 
     private void Btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn0ActionPerformed
-        this.printNumber("0");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"0");
     }//GEN-LAST:event_Btn0ActionPerformed
 
     private void Btn00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn00ActionPerformed
-        this.printNumber("00");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"00");
     }//GEN-LAST:event_Btn00ActionPerformed
 
     private void BtnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRetrocederActionPerformed
@@ -330,39 +346,44 @@ public class Screen extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRetrocederActionPerformed
 
     private void Btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn2ActionPerformed
-        this.printNumber("2");  
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"2");
     }//GEN-LAST:event_Btn2ActionPerformed
 
     private void BtnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIgualActionPerformed
         this.segundonumero=Float.parseFloat(this.Txtpantalla.getText());
         
         switch(this.operador){
-            case "+":this.Txtpantalla.setText(Float.toString(this.primernumero+this.segundonumero));
+            case "+" -> this.Txtpantalla.setText(Float.toString(this.primernumero+this.segundonumero));
+            case "-" -> this.Txtpantalla.setText(Float.toString(this.primernumero-this.segundonumero));
+            case "*" -> this.Txtpantalla.setText(Float.toString(this.primernumero*this.segundonumero));
+            case "/" -> this.Txtpantalla.setText(Float.toString(this.primernumero/this.segundonumero));
+
+            
         }
     }//GEN-LAST:event_BtnIgualActionPerformed
 
     private void Btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn4ActionPerformed
-        this.printNumber("4");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"4");
     }//GEN-LAST:event_Btn4ActionPerformed
 
     private void Btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn5ActionPerformed
-        this.printNumber("5");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"5");
     }//GEN-LAST:event_Btn5ActionPerformed
 
     private void Btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn7ActionPerformed
-        this.printNumber("7");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"7");
     }//GEN-LAST:event_Btn7ActionPerformed
 
     private void Btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn8ActionPerformed
-        this.printNumber("8");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"8");
     }//GEN-LAST:event_Btn8ActionPerformed
 
     private void Btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn9ActionPerformed
-        this.printNumber("9");
+        this.Txtpantalla.setText(this.Txtpantalla.getText()+"9");
     }//GEN-LAST:event_Btn9ActionPerformed
 
     private void BtnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCActionPerformed
-        Txtpantalla.setText("");
+        this.Txtpantalla.setText("");
     }//GEN-LAST:event_BtnCActionPerformed
 
     private void BtnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSumaActionPerformed
@@ -370,6 +391,18 @@ public class Screen extends javax.swing.JFrame {
         this.operador="+";
         this.Txtpantalla.setText("");
     }//GEN-LAST:event_BtnSumaActionPerformed
+
+    private void BtnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMultiplicacionActionPerformed
+        this.primernumero=Float.parseFloat(this.Txtpantalla.getText());
+        this.operador="*";
+        this.Txtpantalla.setText("");
+    }//GEN-LAST:event_BtnMultiplicacionActionPerformed
+
+    private void BtnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDivisionActionPerformed
+        this.primernumero=Float.parseFloat(this.Txtpantalla.getText());
+        this.operador="/";
+        this.Txtpantalla.setText("");
+    }//GEN-LAST:event_BtnDivisionActionPerformed
     private void printNumber(String buttonText){
         String pantalla = this.Txtpantalla.getText();
         if(pantalla.length() < 8){
@@ -385,6 +418,21 @@ public class Screen extends javax.swing.JFrame {
             }
         }
         this.Txtpantalla.setText(pantalla);
+        }
+    }
+    public String sincero(float resultado){
+        String retorno="";
+        retorno=Float.toString(resultado);
+        
+        if (resultado%1==0) {
+            retorno=retorno.substring(0, retorno.length()-2);  
+        }
+        return retorno;
+    }
+    
+    public class prueba{
+        public static void main(String[] args){
+            System.out.println(18.0%1);
         }
     }
     public static void main(String args[]) {
